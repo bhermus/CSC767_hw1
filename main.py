@@ -5,17 +5,11 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
-if __name__ == '__main__':
-    # Listing 1 - Load dataset
-    filename = 'winequality-white.csv'
-    names = ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides',
-             'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
-    dataset = pd.read_csv(filename, delimiter=";")
 
-    # Listing 2 -Summarize Data
-
-    # Listing 2a - Descriptive statistics
-    # shape
+def part1(dataset: pd.DataFrame):
+    # ----- PART 1 -----
+    # Descriptive statistics
+    # Listing 2a - shape
     print('Number of Data Rows = ', dataset.shape[0]);
     print('Number of Data columns = ', dataset.shape[1]);
 
@@ -41,3 +35,20 @@ if __name__ == '__main__':
     # Listing 3c - scatter plot matrix
     pd.plotting.scatter_matrix(dataset, figsize=(17, 17))
     pyplot.show()
+
+
+def part2(dataset: pd.DataFrame):
+    # ----- PART 2 -----
+    # Listing 4a - Pairwise Pearson correlations
+    print(dataset.corr(method='pearson'))
+
+
+if __name__ == '__main__':
+    # Listing 1 - Load dataset
+    filename = 'winequality-white.csv'
+    names = ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides',
+             'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
+    dataset = pd.read_csv(filename, delimiter=";")
+
+    # part1(dataset)
+    part2(dataset)
