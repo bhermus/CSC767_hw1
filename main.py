@@ -80,7 +80,10 @@ def part2(dataset: pd.DataFrame):
     print(normalized[0:5])  # view first 5 rows of normalized data
 
     # Listing 5d - Binarization
-    pyplot.show()
+    binarized = preprocessing.Binarizer(threshold=5).fit_transform(array)
+    np.set_printoptions(precision=0)
+    print((binarized[0:5]))  # view first 5 rows of binarzied data
+
 
 if __name__ == '__main__':
     # Listing 1 - Load dataset
