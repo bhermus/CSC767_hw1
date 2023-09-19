@@ -20,7 +20,7 @@ def part1(dataset: pd.DataFrame):
     print(dataset.describe())
 
     # Listing 2d - class distribution
-    print(dataset.groupby('quality').size())
+    print(dataset.groupby('area').size())
 
     # Listing 3 - Data visualizations
 
@@ -45,10 +45,9 @@ def part2(dataset: pd.DataFrame):
 
 if __name__ == '__main__':
     # Listing 1 - Load dataset
-    filename = 'winequality-white.csv'
-    names = ['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar', 'chlorides',
-             'free sulfur dioxide', 'total sulfur dioxide', 'density', 'pH', 'sulphates', 'alcohol', 'quality']
-    dataset = pd.read_csv(filename, delimiter=";")
+    filename = 'seed.csv'
+    names = ["area", "perimeter", "compactness", "length", "width", "asymmetry", "groove"]
+    dataset = pd.read_csv(filename, delimiter=",", names=names, index_col=7)
 
-    # part1(dataset)
+    part1(dataset)
     part2(dataset)
